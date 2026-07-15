@@ -1,6 +1,9 @@
 import numpy as np
+from environments.base_env import ModelBasedEnv
 
-def value_iteration(env, policy, gamma=0.99, theta=0.0001):
+def value_iteration(env: ModelBasedEnv, policy, gamma=0.99, theta=0.0001):
+    assert isinstance(env, ModelBasedEnv), "Value iteration is a dynamic programming algorithm and requires a model. use ModelBasedEnv"
+    
     V = np.zeros(env.n_states)
     
     #1. Value iteration
